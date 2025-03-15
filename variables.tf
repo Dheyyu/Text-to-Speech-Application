@@ -10,17 +10,19 @@ variable "aws-region" {
 variable "access_key" {
   description = "AWS Access Key"
   type        = string
+  // Add the default value which include your AWS Access Key ID
 }
 
 # Configure the AWS secret key
 variable "secret_key" {
   description = "AWS Secret Key"
   type        = string
+  // Add the default value which include your AWS Secret Access Key
 }
 
 # Configure the S3 bucket name
 variable "s3-bucket-name" {
   description = "The name of the S3 bucket"
   type        = string
-  default     = "text-to-speech-narrator"
+  default     = "new-text-to-speech-narrator"
 }

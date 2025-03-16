@@ -36,3 +36,39 @@ variable "iam_role_name" {
   type        = string
   default     = "lambda_execution_role"
 }
+
+# Configure the Lambda Function
+# Configure the Lambda function name
+variable "lambda_function_name" {
+  description = "The name of the Lambda function"
+  type        = string
+  default     = "text_narrator_lambda"
+}
+
+# Configure the Lambda function handler
+variable "lambda_function_handler" {
+  description = "The handler for the Lambda function"
+  type        = string
+  default     = "lambda_function.lambda_handler"
+}
+
+# Configure the Lambda function runtime
+variable "lambda_function_runtime" {
+  description = "The runtime for the Lambda function"
+  type        = string
+  default     = "python3.9"
+}
+
+# Configure the Lambda function timeout (in seconds)
+variable "lambda_function_timeout" {
+  description = "The timeout for the Lambda function in seconds"
+  type        = number
+  default     = 300
+}
+
+# Configure the filename for the Lambda function code
+variable "lambda_function_code_filename" {
+  description = "The filename for the Lambda function code"
+  type        = string
+  default     = "lambda_function.zip"
+}

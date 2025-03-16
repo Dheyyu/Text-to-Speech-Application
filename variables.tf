@@ -20,9 +20,19 @@ variable "secret_key" {
   // Add the default value which include your AWS Secret Access Key
 }
 
+# Step 1: Congigure the S3 bucket for the text narrator
 # Configure the S3 bucket name
 variable "s3-bucket-name" {
   description = "The name of the S3 bucket"
   type        = string
-  default     = "new-text-to-speech-narrator"
+  default     = "text-to-speech-narrator"
+
+}
+
+# Create the IAM Role for Lambda
+# Configure the IAM role name
+variable "iam_role_name" {
+  description = "The name of the IAM role for Lambda"
+  type        = string
+  default     = "lambda_execution_role"
 }

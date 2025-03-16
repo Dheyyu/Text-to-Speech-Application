@@ -124,7 +124,7 @@ Since this project isn’t exposed via a public website, you can test the Lambda
 
 #### 3. Invoke the test and inspect the response. A successful response returns a pre-signed URL for the audio file.
 
-### Cleanup
+## Cleanup
 
 When you're finished experimenting and documenting, tear down all the resources by running:
 

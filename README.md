@@ -49,3 +49,87 @@ Ensure your AWS CLI is configured. For example, run:
 ```bash
 aws configure
 ```
+
+### 2 Provision Infrastructure with Terraform
+
+Navigate to the terraform/ directory and run:
+
+```bash
+terraform init
+```
+
+To initialalize terraform on your local machine
+
+Then run:
+
+```bash
+terraform validate
+```
+
+To validate your code is well structured
+
+Then run:
+
+```bash
+terraform plan
+```
+
+To plan the way the resources would be created
+
+Then finally, run:
+
+```bash
+terraform apply
+```
+
+To apply those changes and set up the resources.
+
+Terraform will provision the following:
+
+- An S3 bucket (for storing your synthesized audio)
+
+- An IAM Role with permissions for Lambda, S3, and Polly
+
+- A Lambda function that implements the text-to-speech conversion
+
+Note: The S3 bucket ACL is set to private by default, and pre-signed URLs control temporary access.
+
+### 3. Package and Deploy the Lambda Function
+
+In the lambda/ directory, package your function code:
+
+```bash
+cd lambda
+zip lambda.zip lambda_function.py
+cd ..
+```
+
+Ensure your Terraform Lambda resource points to the correct ZIP file. Then, re-run terraform apply if necessary to update your Lambda deployment.
+
+## Testing the Application
+
+Since this project isn’t exposed via a public website, you can test the Lambda function below:
+
+### A. Via the AWS Console
+
+#### 1. Go to your Lambda function in the AWS Console.
+
+#### 2. Click "Test" and set up a new test event with the following JSON payload:
+
+```json
+{
+  "body": "{\"text\": \"Hello, this is a sample text-to-speech conversion.\"}"
+}
+```
+
+#### 3. Invoke the test and inspect the response. A successful response returns a pre-signed URL for the audio file.
+
+### Cleanup
+
+When you're finished experimenting and documenting, tear down all the resources by running:
+
+```bash
+terraform destroy
+```
+
+This command removes all AWS resources that were created for this project.

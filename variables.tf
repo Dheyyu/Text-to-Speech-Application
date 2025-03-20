@@ -72,3 +72,23 @@ variable "lambda_function_code_filename" {
   type        = string
   default     = "lambda_function.zip"
 }
+
+
+
+
+
+/* Frontend for the Text-to-Speech Application*/
+
+# Configure the API Gateway name
+variable "api_gateway_name" {
+  description = "The name of the API Gateway for the Text-to-Speech application"
+  type        = string
+  default     = "text_narrator_api"
+}
+
+# Configure the S3 bucket name for the frontend
+variable "frontend_bucket_name" {
+  description = "The name of the S3 bucket for the frontend"
+  type        = string
+  default     = "text-to-speech-frontend-bucket"
+}

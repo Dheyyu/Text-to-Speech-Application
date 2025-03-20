@@ -133,3 +133,5 @@ terraform destroy
 ```
 
 This command removes all AWS resources that were created for this project.
+
+Then you have successfully created the Text-to-Speech Application.

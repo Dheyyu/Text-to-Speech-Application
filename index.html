@@ -1,9 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Text-to-Speech Application</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+        <div class="container">
+            <h1>Text-to-Speech Application</h1>
+
+            <textarea id="text-input" placeholder="Enter text here..."></textarea>
+
+            <div class="control">
+                <select name="HH" id="voiceSelect">
+                    <option value="Joanna">Joanna (Female, US)</option>
+                    <option value="Matthew">Matthew (Male, US)</option>
+                    <option value="Nicole">Nicole (Female, Australian)</option>
+                    <option value="Russell">Russell (Male, Australian)</option>
+                    <option value="Amy">Amy (Female, British)</option>
+                    <option value="Brian">Brian (Male, British)</option>
+                </select>
+                
+                <button id="generateBtn">Generate Speech</button>
+            </div>
+
+            <div class="loading" id="loadingIndicator">
+                <p>Converting your text to speech...</p>
+            </div>
+
+            <div class="error" id="errorMessage"></div>
+
+            <div class="audio-container" id="audioContainer">
+                <audio id="audioPlayer" controls></audio>
+                <button id="downloadBtn" class="download-btn">Download Audio</button>
+            </div>
+        </div>
         
+        <script src="script.js"></script>
     </body>
 </html>

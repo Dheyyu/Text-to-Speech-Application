@@ -1,0 +1,105 @@
+body{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f7fb;
+}
+
+.container{
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+h1{
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+textarea{
+    width: 100%;
+    height: 150px;
+    /* padding: 15px; */
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 16px;
+}
+
+.controls{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+select{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex-grow: 1;
+}
+
+button{
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover{
+    background-color: #2980b9;
+}
+
+button:disabled{
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.audio-container{
+    margin-top: 30px;
+    display: none;
+}
+
+.audio-container.visible{
+    display: block;
+}
+
+.loading{
+    text-align: center;
+    display: none;
+}
+
+.loading.visible{
+    display: block;
+}
+
+audio{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.download-btn{
+    background-color: #2ecc71;;
+}
+
+.download-btn:hover{
+    background-color: #27ae60;
+}
+
+.error{
+    color: #e74c3c;
+    padding: 10px;
+    display: none;
+}
+
+.error.visible{
+    display: block;
+}

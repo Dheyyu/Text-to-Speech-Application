@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,12 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+        <header>
+            <div class="logo">
+                <h1>Text-to-Speech Application</h1>
+            </div>
+
         <div class="container">
-            <h1>Text-to-Speech Application</h1>
 
             <textarea id="text-input" placeholder="Enter text here..."></textarea>
 
@@ -22,7 +26,7 @@
                     <option value="Brian">Brian (Male, British)</option>
                 </select>
                 
-                <button id="generateBtn">Generate Speech</button>
+                <button id="generateBtn">Generate Audio</button>
             </div>
 
             <div class="loading" id="loadingIndicator">
@@ -37,6 +41,12 @@
             </div>
         </div>
         
+
+
         <script src="script.js"></script>
+
+        <footer>
+            <p>&copy; Oladayo Ayorinde 🖤 2025 Text-to-Speech Application. All rights reserved.</p>
+        </footer>
     </body>
 </html>

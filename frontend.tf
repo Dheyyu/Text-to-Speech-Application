@@ -114,9 +114,20 @@ resource "aws_s3_bucket_website_configuration" "frontend_website" {
   }
 }
 
+# Disable the "block public access" settings for the S3 bucket
+resource "aws_s3_bucket_public_access_block" "frontend_bucket_public_access" {
+  bucket = aws_s3_bucket.frontend_bucket.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
 # Configure the S3 bucket policy to allow public read access
 resource "aws_s3_bucket_policy" "frontend_bucket_policy" {
-  bucket = aws_s3_bucket.frontend_bucket.id
+  bucket     = aws_s3_bucket.frontend_bucket.id
+  depends_on = [aws_s3_bucket_public_access_block.frontend_bucket_public_access]
 
   policy = jsonencode({
     Version = "2012-10-17"

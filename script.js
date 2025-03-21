@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const voiceSelect = document.getElementById('textInput');
+    const textInput = document.getElementById('text-input');
+    const voiceSelect = document.getElementById('voiceSelect');
     const generateBtn = document.getElementById('generateBtn');
     const loadingIndicator = document.getElementById('loadingIndicator');
     const errorMessage = document.getElementById('errorMessage');

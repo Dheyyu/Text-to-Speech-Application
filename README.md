@@ -49,8 +49,9 @@ Ensure your AWS CLI is configured. For example, run:
 ```bash
 aws configure
 ```
+Then provide your AWS credentials to connect your account.
 
-### 2 Provision Infrastructure with Terraform
+### 2. Provision Infrastructure with Terraform
 
 Navigate to the terraform/ directory and run:
 

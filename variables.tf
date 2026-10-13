@@ -5,21 +5,6 @@ variable "aws-region" {
   default     = "us-east-1"
 }
 
-# Configure the AWS Credentials
-# Configure the AWS access key
-variable "access_key" {
-  description = "AWS Access Key"
-  type        = string
-  // Add the default value which include your AWS Access Key ID
-}
-
-# Configure the AWS secret key
-variable "secret_key" {
-  description = "AWS Secret Key"
-  type        = string
-  // Add the default value which include your AWS Secret Access Key
-}
-
 # Step 1: Congigure the S3 bucket for the text narrator
 # Configure the S3 bucket name
 variable "s3-bucket-name" {

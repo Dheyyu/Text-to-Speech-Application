@@ -64,6 +64,7 @@ select{
     border: 1px solid #ddd;
     border-radius: 40px;
     flex-grow: 1;
+    margin: 15px;
 }
 
 button{

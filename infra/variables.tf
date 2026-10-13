@@ -55,11 +55,8 @@ variable "lambda_function_timeout" {
 variable "lambda_function_code_filename" {
   description = "The filename for the Lambda function code"
   type        = string
-  default     = "lambda_function.zip"
+  default     = "../lambda/lambda_function.zip"
 }
-
-
-
 
 
 /* Frontend for the Text-to-Speech Application*/

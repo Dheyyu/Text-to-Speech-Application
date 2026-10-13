@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const downloadBtn = document.getElementById('downloadBtn');
 
     // Replace this with your actual API Gateway URL
-    const apiUrl = 'YOUR_API_GATEWAY_URL';
+    const apiUrl = 'https://3v75utmk82.execute-api.us-east-1.amazonaws.com/prod/convert';
 
     generateBtn.addEventListener('click', async function () {
         const text = textInput.value.trim();

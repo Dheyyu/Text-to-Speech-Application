@@ -146,15 +146,8 @@ resource "aws_s3_bucket_policy" "frontend_bucket_policy" {
 # Configure the CloudFront distribution for the S3 bucket
 resource "aws_cloudfront_distribution" "text_to_speech_distribution" {
   origin {
-    domain_name = aws_s3_bucket_website_configuration.frontend_website.website_endpoint
-    origin_id   = "S3-Website-${aws_s3_bucket.frontend_bucket.id}"
-
-    custom_origin_config {
-      http_port              = 80
-      https_port             = 443
-      origin_protocol_policy = "http-only"
-      origin_ssl_protocols   = ["TLSv1.2"]
-    }
+    domain_name = aws_s3_bucket.frontend_bucket.bucket_regional_domain_name
+    origin_id   = "S3-${aws_s3_bucket.frontend_bucket.id}"
   }
 
   enabled             = true
@@ -166,7 +159,7 @@ resource "aws_cloudfront_distribution" "text_to_speech_distribution" {
   }
 
   default_cache_behavior {
-    target_origin_id       = "S3-Website-${aws_s3_bucket.frontend_bucket.id}"
+    target_origin_id       = "S3-${aws_s3_bucket.frontend_bucket.id}"
     viewer_protocol_policy = "redirect-to-https"
 
     allowed_methods = ["GET", "HEAD"]
@@ -182,8 +175,8 @@ resource "aws_cloudfront_distribution" "text_to_speech_distribution" {
     }
     # Cache settings
     min_ttl     = 0
-    default_ttl = 3600
-    max_ttl     = 86400
+    default_ttl = 0
+    max_ttl     = 0
   }
 
   restrictions {
@@ -194,17 +187,8 @@ resource "aws_cloudfront_distribution" "text_to_speech_distribution" {
 
 }
 
-# Output the website URL
-output "website_url" {
-  value = aws_s3_bucket_website_configuration.frontend_website.website_endpoint
-}
-
-# Output the API endpoint URL
-output "api_endpoint" {
-  value = "${aws_api_gateway_deployment.text_narrator_deployment.invoke_url}/${aws_api_gateway_resource.text_narrator_resource.path_part}"
-}
-
-# Output the CloudFront distribution URL
-output "cloudfront_distribution_url" {
-  value = aws_cloudfront_distribution.text_to_speech_distribution.domain_name
+# The distribution was originally created as "text-to_speech_distribution"
+moved {
+  from = aws_cloudfront_distribution.text-to_speech_distribution
+  to   = aws_cloudfront_distribution.text_to_speech_distribution
 }

@@ -51,13 +51,3 @@ resource "aws_lambda_function" "text_narrator_lambda" {
     }
   }
 }
-
-
-# Test your application with this
-/*
-
-{
-  "body": "{ \"text\": \"Hello! My name is Oladayo David Ayorinde and I successfully built a text-to-speech application using Amazon Polly, S3 Bucket, and AWS Lambda. Thank your for your time and I hope this project helps you.\" }"
-}
-
-*/
